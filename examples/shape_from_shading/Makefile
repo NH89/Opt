@@ -8,10 +8,10 @@ ifeq ($(UNAME), Darwin)
 endif
 
 ifeq ($(UNAME), Linux)
-  LFLAGS += -L../external/OpenMesh/lib/linux -Wl,-rpath,../external/OpenMesh/lib/linux
+  LFLAGS += -L/usr/local/  #../external/OpenMesh/lib/linux -Wl,-rpath,../external/OpenMesh/lib/linux
 endif
 
-LFLAGS += -lOpenMeshCore -lOpenMeshTools
+LFLAGS += -lOpenMeshCore -lOpenMeshTools  -lm
 
 
 include ../shared/make_template.inc

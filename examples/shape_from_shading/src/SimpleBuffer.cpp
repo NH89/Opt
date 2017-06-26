@@ -3,12 +3,12 @@
 #include "SimpleBuffer.h"
 
 #include <string.h>
-#include <cuda_runtime.h>
+#include "/usr/local/cuda/include/cuda_runtime.h"//<cuda_runtime.h>
 #include <stdio.h>
-#include <math.h>
+#include <cmath>
 #include <limits>
 //using std::memcpy;
-
+#include <iostream>
 
 
 SimpleBuffer::SimpleBuffer(std::string filename, bool onGPU, bool clampInfinity) :
@@ -32,7 +32,7 @@ SimpleBuffer::SimpleBuffer(std::string filename, bool onGPU, bool clampInfinity)
     if (m_dataType == 0 && clampInfinity) {
       float* fPtr = (float*)ptr;
       for (int i = 0; i < m_width*m_height; ++i) {
-	if (isinf(fPtr[i])) {
+	if (std::isinf(fPtr[i])) {
 	  if (fPtr[i] > 0) {
 	    fPtr[i] = std::numeric_limits<float>::max();
 	  } else {

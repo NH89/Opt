@@ -1,5 +1,5 @@
-CXX = clang++
-LINK = clang++
+CXX = clang++-3.8
+LINK = clang++-3.8
 NVCC = /usr/local/cuda/bin/nvcc
 SRC ?= src
 CUDAHOME += /usr/local/cuda
@@ -10,7 +10,7 @@ ifeq ($(UNAME), Linux)
   S4 = 64
 endif
 
-FLAGS += -O3 -g -std=c++11 -Isrc -Isrc/cutil/inc -I../../API/release/include -I$(TERRAHOME)/include -I$(CUDAHOME)/include -I../external/mLib/include -I../external -I../external/OpenMesh/include
+FLAGS += -O3 -g -std=c++11 -Isrc -Isrc/cutil/inc -I../../API/release/include -I$(TERRAHOME)/include -I$(CUDAHOME)/include -I../external/mLib/include -I../external -I/usr/local/include/OpenMesh  #../external/OpenMesh/include
 NVCCFLAGS += -arch sm_30 $(FLAGS)
 LFLAGS += -std=c++11 -L../../API/release/lib -L$(CUDAHOME)/lib$(S4) -lcudart -L$(TERRAHOME)/lib -lterra -ldl
 UNAME := $(shell uname)

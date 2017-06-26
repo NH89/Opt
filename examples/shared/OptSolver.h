@@ -11,6 +11,8 @@ extern "C" {
 #include "cudaUtil.h"
 #include "NamedParameters.h"
 #include "SolverBase.h"
+#include <stdio.h>
+#include <string.h>
 
 static NamedParameters copyParametersAndConvertUnknownsToDouble(const NamedParameters& original) {
     NamedParameters newParams(original);
